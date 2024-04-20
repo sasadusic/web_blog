@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Hello, world</h1>
+<div class="card-cont">
+    {% for post in blogs %}
+    <div class="card">
+        <div class="card-img-cont">
+            <img src="{{ post.image.url }}" alt="" class="card-img">
+        </div>
+        <div class="card-body">
+            <h2 class="card title">{{ post.title }}</h2>
+            <p class="phar">{{ post.body }}</p>
+            <a href="{% url 'detail' post.pk %}" class="btn btn-color">Read More</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

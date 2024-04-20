@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Detail</h1>
+<img src="{{ post.image.url }}" alt="" class="detail-img">
+<h2 class="sub-header">{{ post.title }}</h2>
+<p class="phar">{{ post.body }}</p>
+<div class="comment-cont">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-color">Add Comment</button>
+    </form>
+    {% for comment in comments %}
+    <p class="phar">{{ comment.description }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+    
